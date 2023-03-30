@@ -1,0 +1,14 @@
+.cart{
+    padding-left: 10px;
+    background-color:#FF99004D;
+    padding: 25px;
+    position: sticky;
+    top: 0;
+}
+.title{
+    text-align: center;
+}
+.cart p{
+    font-size: 17px;
+    padding: 5px;
+}
