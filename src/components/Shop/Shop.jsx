@@ -29,7 +29,16 @@ const Shop = () => {
     },[products])
 
     const handelProductAdded = product =>{
-        const newCart = [...cart,product]
+        let newCart = [];
+        const isExit = cart.find(pd => pd.id === product.id)
+        if(!isExit){
+            product.quantity = 1
+            newCart=[...cart,product]
+        }else{
+            isExit.quantity = isExit.quantity + 1;
+            const remaining = cart.filter(pd => pd.id != product.id)
+            newCart = [...remaining,isExit]
+        }
         setCart(newCart)
         addToDb(product.id)
     }

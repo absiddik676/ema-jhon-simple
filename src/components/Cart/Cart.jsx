@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cart.css'
 const Cart = ({cart}) => {
-    const totalPrice = cart.reduce((preview,current)=> preview + current.price,0)
+    const totalPrice = cart.reduce((preview,current)=> preview + current.price * current.quantity,0)
     const shippingCost = cart.reduce((preview,current)=> preview + current.shipping,0)
     const quantity = cart.reduce((preview,current)=> preview + current.quantity,0)
     const tax = totalPrice * 7 /100;
