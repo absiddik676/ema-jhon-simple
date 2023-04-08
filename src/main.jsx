@@ -12,6 +12,7 @@ import Oders from './components/Oders/Oders';
 import Inventory from './components/Inventory/Inventory';
 import Login from './components/Login/Login';
 import cardProductLoader from './Loders/CardProductLoder';
+import ChackOut from './components/ChackOut/ChackOut';
 const router = createBrowserRouter([
   {
     path:'/',
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path:'Inventory',
         element:<Inventory/>
+      },
+      {
+        path:'chackOut',
+        element:<ChackOut/>
       },
       {
         path:'login',
