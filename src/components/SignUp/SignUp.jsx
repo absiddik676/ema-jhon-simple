@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './SignUp.css'
 import { Link } from 'react-router-dom';
+import { AuthProviderContext } from '../Auth/AuthProvider';
 const SignUp = () => {
     const [error,setError] = useState('')
-
+    const {createUser} = useContext(AuthProviderContext)
     const handelSigUp = e =>{
         e.preventDefault();
         const email =  e.target.email.value;
         const password =  e.target.password.value;
         const conformPass  =  e.target.conform.value;
         console.log( email,password,conformPass);
-
+        setError('')
         if(password !== conformPass){
             setError('Your Password did not match');
             return
@@ -19,10 +20,16 @@ const SignUp = () => {
             setError('password must be 6 latter');
             return;
         }
+        createUser(email,password)
+        .then(result =>{
+            console.log(result);
+            e.target.reset()
+        })
+        .catch(error=>{
+           setError(error.massage);
+        })
 
     }
-    console.log(error);
-
     return (
         <div className='form-container'>
             <h2 className='form-title'>Sign Up</h2>

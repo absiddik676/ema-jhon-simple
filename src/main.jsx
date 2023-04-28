@@ -14,41 +14,44 @@ import Login from './components/Login/Login';
 import cardProductLoader from './Loders/CardProductLoder';
 import ChackOut from './components/ChackOut/ChackOut';
 import SignUp from './components/SignUp/SignUp';
+import AuthProvider from './components/Auth/AuthProvider';
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<Layout/>,
-    children:([
+    path: '/',
+    element: <Layout />,
+    children: ([
       {
-        path:'/',
-        element:<Shop/>
+        path: '/',
+        element: <Shop />
       },
       {
-        path:'oders',
-        element:<Oders/>,
-        loader:cardProductLoader
+        path: 'oders',
+        element: <Oders />,
+        loader: cardProductLoader
       },
       {
-        path:'Inventory',
-        element:<Inventory/>
+        path: 'Inventory',
+        element: <Inventory />
       },
       {
-        path:'chackOut',
-        element:<ChackOut/>
+        path: 'chackOut',
+        element: <ChackOut />
       },
       {
-        path:'login',
-        element:<Login/>
+        path: 'login',
+        element: <Login />
       },
       {
-        path:'signup',
-        element:<SignUp/>
+        path: 'signup',
+        element: <SignUp />
       }
     ])
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
