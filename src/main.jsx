@@ -13,6 +13,7 @@ import Inventory from './components/Inventory/Inventory';
 import Login from './components/Login/Login';
 import cardProductLoader from './Loders/CardProductLoder';
 import ChackOut from './components/ChackOut/ChackOut';
+import SignUp from './components/SignUp/SignUp';
 const router = createBrowserRouter([
   {
     path:'/',
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:'login',
         element:<Login/>
+      },
+      {
+        path:'signup',
+        element:<SignUp/>
       }
     ])
   }
