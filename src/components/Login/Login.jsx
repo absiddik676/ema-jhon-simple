@@ -1,9 +1,14 @@
 import React, { useContext } from 'react';
 import './Login.css'
-import { Link } from 'react-router-dom';
+import { Link,useNavigate,useLocation  } from 'react-router-dom';
 import { AuthProviderContext } from '../Auth/AuthProvider';
 const Login = () => {
     const {logIn} = useContext(AuthProviderContext)
+    const navigate = useNavigate()
+    const location = useLocation();
+    console.log(location);
+
+    const from = location?.state?.from?.pathname || '/'
 
     const handelLogin = e =>{
         e.preventDefault()
@@ -13,6 +18,7 @@ const Login = () => {
         .then(result  =>{
             console.log(result.user);
             e.target.reset()
+            navigate(from,{replace:true})
         })
         .catch(error =>{
             console.log(error.message);
@@ -30,6 +36,7 @@ const Login = () => {
             <input className='btn-submit' type="submit" value="Login" />
             <p className='new-to-website'>New to Ema-john? <Link className='link' to='/signup'>Create New Account</Link></p>
             </form>
+            
         </div>
     );
 };

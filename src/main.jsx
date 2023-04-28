@@ -15,6 +15,7 @@ import cardProductLoader from './Loders/CardProductLoder';
 import ChackOut from './components/ChackOut/ChackOut';
 import SignUp from './components/SignUp/SignUp';
 import AuthProvider from './components/Auth/AuthProvider';
+import PrivateRout from './Routs/PrivateRout';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'chackOut',
-        element: <ChackOut />
+        element: <PrivateRout><ChackOut /></PrivateRout>
       },
       {
         path: 'login',
