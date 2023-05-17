@@ -22,3 +22,12 @@
 .arrow-icon{
     color: white;
 }
+.pageNation{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.selected{
+    background-color: #FF9900;
+}
